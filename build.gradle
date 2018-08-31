@@ -1,0 +1,33 @@
+apply from:"config.gradle"
+
+buildscript {
+    ext.kotlin_version = '1.2.10'
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven{ url 'https://maven.google.com'}
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'                        //gradle版本
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'             //黄油刀，为了避免findViewById的烦恼
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'                 //数据库，为了方便存储一些数据
+        classpath 'me.tatarka:gradle-retrolambda:3.2.5'                         //为了方便使用lambda表达式
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"   //为了使用kotlin
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven{
+            url "https://jitpack.io"
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

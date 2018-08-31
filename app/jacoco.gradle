@@ -1,0 +1,21 @@
+apply plugin:'jacoco'
+jacoco{
+    toolVersion="0.7.7.201606060606"
+    reportsDir=file("$buildDir/JacocoReport")
+}
+
+task jacocoTestReport(type:JacocoReport,dependsOn:'testDebugUnitTest'){
+    group="reporting"     //指定task分组
+    reports{
+        xml.enabled=true  //开启xml报告
+        html.enabled=true //开启html报告
+    }
+
+    def debugTree=fileTree(dir:"${buildDir}/intermediates/classes/debug",
+            includes:["**/*Presenter.*"],excludes: ["*.*"]) //生成所有Presenter类的测试报告
+    def mainSrc="${project.projectDir}/src/main/java"       //指定源码目录
+
+    sourceDirectories=files([mainSrc])
+    classDirectories=files([debugTree])
+    executionData=files("${buildDir}/jacoco/testDebugUnitTest.exec")  //指定报告数据的路径
+}
