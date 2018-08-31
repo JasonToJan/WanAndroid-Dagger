@@ -35,8 +35,7 @@ public abstract class AbstractSimpleActivity extends SupportActivity{
         mActivity=this;
         ActivityCollector.getInstance().addActivity(this);//收集活动
         onViewCreated();//视图创建完成
-
-
+        initToolbar();//初始化标题栏
         initEventAndData();//初始化事件和一些数据
     }
 
