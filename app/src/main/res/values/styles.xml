@@ -20,5 +20,40 @@
         <item name="android:activityCloseExitAnimation">@anim/push_right_out</item>
     </style>
 
+    <!--单独设置view的属性-->
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--单独设置view的属性-->
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <!--设置浮动按钮-->
+    <style name="style_float_btn">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">bottom|end</item>
+    </style>
+
+    <!--弹出框样式-->
+    <style name="myCorDialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/dialog_corner_bg</item> <!-- 背景透明 -->
+        <item name="android:windowNoTitle">true</item> <!-- 没有标题 -->
+        <item name="android:backgroundDimEnabled">true</item> <!-- 背景模糊 -->
+    </style>
+
+    <!--弹出框线条-->
+    <style name="style_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_05</item>
+        <item name="android:background">@color/delete_text</item>
+    </style>
+
+    <!--弹出框按钮的文字样式-->
+    <style name="DialogButtonText">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:background">@null</item>
+    </style>
+
 
 </resources>

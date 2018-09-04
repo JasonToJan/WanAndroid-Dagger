@@ -2,6 +2,8 @@ package jan.jason.wanandroid.app;
 
 import android.graphics.Color;
 
+import java.io.File;
+
 /**
  * @Description: 定义了一些常量
  * @Author: jasonjan
@@ -31,5 +33,112 @@ public class Constants {
             Color.parseColor("#67CCB7"),
             Color.parseColor("#F6BC7E")
     };
+
+    /**
+     * 标签碎片值
+     */
+    public static final int TYPE_MAIN_PAGER = 0;
+
+    public static final int TYPE_KNOWLEDGE = 1;
+
+    public static final int TYPE_NAVIGATION = 2;
+
+    public static final int TYPE_PROJECT = 3;
+
+    public static final int TYPE_COLLECT = 4;
+
+    public static final int TYPE_SETTING = 5;
+
+    /**
+     * 双击时间限度
+     */
+    public static final long DOUBLE_INTERVAL_TIME = 2000;
+
+    /**
+     * intent 有时候需要用的参数1
+     */
+    public static final String ARG_PARAM1 = "param1";
+
+    /**
+     * intent 有时需要用的参数2
+     */
+    public static final String ARG_PARAM2 = "param2";
+
+    /**
+     * 网络请求返回的登录数据需用的
+     */
+    public static final String LOGIN_DATA = "login_data";
+
+    /**
+     * 网络请求返回的轮播图需要用的
+     */
+    public static final String BANNER_DATA = "banner_data";
+
+    /**
+     * 网络请求返回的文章数据需要用的
+     */
+    public static final String ARTICLE_DATA = "article_data";
+
+    /**
+     * 跳转到文章详情页需要使用的
+     */
+    public static final String ARTICLE_LINK = "article_link";
+
+    public static final String ARTICLE_TITLE = "article_title";
+
+    public static final String ARTICLE_ID = "article_id";
+
+    public static final String IS_COLLECT = "is_collect";
+
+    public static final String IS_COMMON_SITE = "is_common_site";
+
+    public static final String IS_COLLECT_PAGE = "is_collect_page";
+
+    /**
+     * 跳转到章节详情需要使用的
+     */
+    public static final String CHAPTER_ID = "chapter_id";
+
+    public static final String IS_SINGLE_CHAPTER = "is_single_chapter";
+
+    public static final String CHAPTER_NAME = "is_chapter_name";
+
+    public static final String SUPER_CHAPTER_NAME = "super_chapter_name";
+
+    /**
+     * Shared Preference key
+     */
+    public static final String MY_SHARED_PREFERENCE = "my_shared_preference";
+
+    public static final String ACCOUNT = "account";
+
+    public static final String PASSWORD = "password";
+
+    public static final String LOGIN_STATUS = "login_status";
+
+    public static final String AUTO_CACHE_STATE = "auto_cache_state";
+
+    public static final String NO_IMAGE_STATE = "no_image_state";
+
+    public static final String NIGHT_MODE_STATE = "night_mode_state";
+
+    public static final String CURRENT_PAGE = "current_page";
+
+    public static final String PROJECT_CURRENT_PAGE = "project_current_page";
+
+    /**
+     * url
+     */
+    public static final String COOKIE = "Cookie";
+
+    /**
+     * 数据存储路径
+     */
+    public static final String PATH_DATA = WanAndroidApp.getInstance().getCacheDir().getAbsolutePath() + File.separator + "data";
+
+    /**
+     * 网络缓存
+     */
+    public static final String PATH_CACHE = PATH_DATA + "/NetCache";
 
 }

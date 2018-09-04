@@ -3,6 +3,7 @@ package jan.jason.wanandroid.di.module;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 import jan.jason.wanandroid.di.component.BaseActivityComponent;
+import jan.jason.wanandroid.ui.main.activity.MainActivity;
 import jan.jason.wanandroid.ui.main.activity.SplashActivity;
 
 /**
@@ -17,4 +18,7 @@ public abstract class AbstractAllActivityModule {
 
     @ContributesAndroidInjector(modules = SplashActivityModule.class)
     abstract SplashActivity contributesSplashActivityInject();
+
+    @ContributesAndroidInjector(modules = MainActivityModule.class)
+    abstract MainActivity contributesMainActivityInject();
 }

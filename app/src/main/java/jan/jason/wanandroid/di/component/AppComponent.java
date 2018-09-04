@@ -8,7 +8,9 @@ import dagger.android.support.AndroidSupportInjectionModule;
 import jan.jason.wanandroid.app.WanAndroidApp;
 import jan.jason.wanandroid.core.DataManager;
 import jan.jason.wanandroid.di.module.AbstractAllActivityModule;
+import jan.jason.wanandroid.di.module.AbstractAllFragmentModule;
 import jan.jason.wanandroid.di.module.AppModule;
+import jan.jason.wanandroid.di.module.HttpModule;
 
 /**
  * @Description: App级别的组件
@@ -22,7 +24,9 @@ import jan.jason.wanandroid.di.module.AppModule;
 @Component(modules = {AndroidInjectionModule.class,
         AndroidSupportInjectionModule.class,
         AbstractAllActivityModule.class,
-        AppModule.class})
+        AbstractAllFragmentModule.class,
+        AppModule.class,
+        HttpModule.class})
 public interface AppComponent {
 
     /**

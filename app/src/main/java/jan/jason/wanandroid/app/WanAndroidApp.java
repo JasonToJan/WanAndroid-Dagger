@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.annotation.NonNull;
 import android.support.multidex.MultiDex;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatDelegate;
@@ -17,9 +16,6 @@ import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
 import com.scwang.smartrefresh.header.DeliveryHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreator;
-import com.scwang.smartrefresh.layout.api.RefreshHeader;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
@@ -37,6 +33,7 @@ import jan.jason.wanandroid.core.dao.DaoSession;
 import jan.jason.wanandroid.di.component.AppComponent;
 import jan.jason.wanandroid.di.component.DaggerAppComponent;
 import jan.jason.wanandroid.di.module.AppModule;
+import jan.jason.wanandroid.di.module.HttpModule;
 import jan.jason.wanandroid.utils.CommonUtils;
 import jan.jason.wanandroid.utils.logger.TxtFormatStrategy;
 
@@ -130,8 +127,10 @@ public class WanAndroidApp extends Application implements HasActivityInjector{
     public void onCreate(){
         super.onCreate();
 
-        //TODO 需要注入HttpModule
-        DaggerAppComponent.builder().appModule(new AppModule(instance))
+        //注入了一个AppModule和HttpModule的一个实例
+        DaggerAppComponent.builder()
+                .appModule(new AppModule(instance))
+                .httpModule(new HttpModule())
                 .build().inject(this);
 
         instance=this;
@@ -193,7 +192,7 @@ public class WanAndroidApp extends Application implements HasActivityInjector{
      * 获取数据库相关类
      * @return
      */
-    public DaoSession getmDaoSession(){
+    public DaoSession getDaoSession(){
         return mDaoSession;
     }
 

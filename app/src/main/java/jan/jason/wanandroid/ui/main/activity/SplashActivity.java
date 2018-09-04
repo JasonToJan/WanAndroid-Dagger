@@ -10,9 +10,13 @@ import jan.jason.wanandroid.app.WanAndroidApp;
 import jan.jason.wanandroid.base.activity.BaseActivity;
 import jan.jason.wanandroid.contract.main.SplashContract;
 import jan.jason.wanandroid.presenter.main.SplashPresenter;
-import jan.jason.wanandroid.test.MainActivity;
 import jan.jason.wanandroid.utils.StatusBarUtil;
 
+/**
+ * @Description: 启动页
+ * @Author: jasonjan
+ * @Date: 2018/9/3 10:49
+ */
 public class SplashActivity extends BaseActivity<SplashPresenter> implements SplashContract.View {
 
     @BindView(R.id.one_animation)
