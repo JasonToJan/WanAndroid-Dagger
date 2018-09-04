@@ -1,5 +1,6 @@
 package jan.jason.wanandroid.ui.main.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
@@ -17,7 +18,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -181,18 +181,18 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                     usageDialogFragment=new UsageDialogFragment();
                 }
                 if(!isDestroyed()&&usageDialogFragment.isAdded()){
-                   // usageDialogFragment.dismiss();
+                   usageDialogFragment.dismiss();
                 }
-                //usageDialogFragment.show(getSupportFragmentManager(),"UsageDialogFragment");
+                usageDialogFragment.show(getSupportFragmentManager(),"UsageDialogFragment");
                 break;
             case R.id.action_search:
                 if(searchDialogFragment==null){
                     searchDialogFragment=new SearchDialogFragment();
                 }
                 if(!isDestroyed()&&searchDialogFragment.isAdded()){
-                    //searchDialogFragment.dismiss();
+                    searchDialogFragment.dismiss();
                 }
-                //searchDialogFragment.show(getSupportFragmentManager(),"SearchDialogFragment");
+                searchDialogFragment.show(getSupportFragmentManager(),"SearchDialogFragment");
                 break;
             default:
                 break;
@@ -263,10 +263,11 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     @Override
     public void showLogoutView(){
         mUsTv.setText(R.string.login_in);
-        mUsTv.setOnClickListener(v -> {
-            //TODO 这里需要更改
-            Toast.makeText(this,"点击了登录",Toast.LENGTH_SHORT).show();
-        });
+        mUsTv.setOnClickListener(v -> startActivity(new Intent(this, LoginActivity.class)));
+        if (mNavigationView == null) {
+            return;
+        }
+        mNavigationView.getMenu().findItem(R.id.nav_item_logout).setVisible(false);
     }
 
     /**
@@ -337,13 +338,13 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                     loadPager(getString(R.string.home_pager),0,mMainPagerFragment,Constants.TYPE_MAIN_PAGER);
                     break;
                 case R.id.tab_knowledge_hierarchy:
-                    //loadPager(getString(R.string.knowledge_hierarchy),1,mKnowledgeHierarchyFragment,Constants.TYPE_KNOWLEDGE);
+                    loadPager(getString(R.string.knowledge_hierarchy),1,mKnowledgeHierarchyFragment,Constants.TYPE_KNOWLEDGE);
                     break;
                 case R.id.tab_navigation:
-                    //loadPager(getString(R.string.navigation),2,mNavigationFragment,Constants.TYPE_NAVIGATION);
+                    loadPager(getString(R.string.navigation),2,mNavigationFragment,Constants.TYPE_NAVIGATION);
                     break;
                 case R.id.tab_project:
-                   // loadPager(getString(R.string.project),3,mProjectFragment, Constants.TYPE_PROJECT);
+                    loadPager(getString(R.string.project),3,mProjectFragment, Constants.TYPE_PROJECT);
                     break;
                 default:
                     break;
@@ -378,17 +379,17 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 break;
             case Constants.TYPE_KNOWLEDGE:
                 if (mKnowledgeHierarchyFragment != null) {
-                    //mKnowledgeHierarchyFragment.jumpToTheTop();
+                    mKnowledgeHierarchyFragment.jumpToTheTop();
                 }
                 break;
             case Constants.TYPE_NAVIGATION:
                 if (mNavigationFragment != null) {
-                    //mNavigationFragment.jumpToTheTop();
+                    mNavigationFragment.jumpToTheTop();
                 }
                 break;
             case Constants.TYPE_PROJECT:
                 if (mProjectFragment != null) {
-                    //mProjectFragment.jumpToTheTop();
+                    mProjectFragment.jumpToTheTop();
                 }
                 break;
             default:
@@ -400,15 +401,15 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
      * 初始化碎片
      */
     private void initFragments() {
-        //mKnowledgeHierarchyFragment = KnowledgeHierarchyFragment.getInstance(null, null);
-        //mNavigationFragment = NavigationFragment.getInstance(null, null);
-       // mProjectFragment = ProjectFragment.getInstance(null, null);
+        mKnowledgeHierarchyFragment = KnowledgeHierarchyFragment.getInstance(null, null);
+        mNavigationFragment = NavigationFragment.getInstance(null, null);
+        mProjectFragment = ProjectFragment.getInstance(null, null);
        // CollectFragment collectFragment = CollectFragment.getInstance(null, null);
        // SettingFragment settingFragment = SettingFragment.getInstance(null, null);
 
-       // mFragments.add(mKnowledgeHierarchyFragment);
-       // mFragments.add(mNavigationFragment);
-       // mFragments.add(mProjectFragment);
+       mFragments.add(mKnowledgeHierarchyFragment);
+       mFragments.add(mNavigationFragment);
+       mFragments.add(mProjectFragment);
        // mFragments.add(collectFragment);
        // mFragments.add(settingFragment);
     }
@@ -463,6 +464,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                         return true;
                     }else{
                         //TODO 打开登录页
+                       // startActivity(new Intent(this, LoginActivity.class));
                         CommonUtils.showMessage(this,getString(R.string.login_tint));
                         return true;
                     }
@@ -470,6 +472,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         mNavigationView.getMenu().findItem(R.id.nav_item_about_us)
                 .setOnMenuItemClickListener(item -> {
                     //TODO 跳转到关于我页面
+                    //startActivity(new Intent(this, AboutUsActivity.class));
                     return true;
                 });
         mNavigationView.getMenu().findItem(R.id.nav_item_logout)

@@ -224,4 +224,20 @@ public class WanAndroidApp extends Application implements HasActivityInjector{
         return mAndroidInjector;
     }
 
+    /**
+     * 外部调用，生产一个AppComponent
+     * 在ImageLoader中用到了
+     * @return
+     */
+    public static synchronized AppComponent getAppComponent() {
+        if (appComponent == null) {
+            appComponent = DaggerAppComponent.builder()
+                    .appModule(new AppModule(instance))
+                    .httpModule(new HttpModule())
+                    .build();
+        }
+        return appComponent;
+    }
+
+
 }

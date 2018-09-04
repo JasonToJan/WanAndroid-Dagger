@@ -1,13 +1,15 @@
 package jan.jason.wanandroid.core.bean.hierarchy;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * @Description: 知识体系实体
+ *              Serializable保证在intent直接可以传递数据
  * @Author: jasonjan
  * @Date: 2018/9/3 22:40
  */
-public class KnowledgeHierarchyData {
+public class KnowledgeHierarchyData implements Serializable{
     /**
      *  "children": [],
      "courseId": 13,

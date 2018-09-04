@@ -4,6 +4,8 @@ import android.graphics.Color;
 
 import java.io.File;
 
+import jan.jason.wanandroid.R;
+
 /**
  * @Description: 定义了一些常量
  * @Author: jasonjan
@@ -140,5 +142,30 @@ public class Constants {
      * 网络缓存
      */
     public static final String PATH_CACHE = PATH_DATA + "/NetCache";
+
+    /**
+     * 三星手机标志 机型适配中会用到
+     */
+    public static final String SAMSUNG = "samsung";
+
+    /**
+     * 默认刷新的主题颜色，知识体系中的刷新
+     */
+    public static final int BLUE_THEME = R.color.colorPrimary;
+
+    /**
+     * 项目分类，默认选择第一个
+     */
+    public static final int TAB_ONE = 0;
+
+    /**
+     * 避免多次点击，中间的预留区域为1s
+     */
+    public static final long CLICK_TIME_AREA = 1000;
+
+    /**
+     * 搜索文字
+     */
+    public static final String SEARCH_TEXT = "search_text";
 
 }

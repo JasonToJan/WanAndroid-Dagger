@@ -8,6 +8,7 @@ import android.os.Build;
 import jan.jason.wanandroid.app.Constants;
 import jan.jason.wanandroid.ui.hierarchy.activity.KnowledgeHierarchyDetailActivity;
 import jan.jason.wanandroid.ui.main.activity.ArticleDetailActivity;
+import jan.jason.wanandroid.ui.main.activity.SearchListActivity;
 
 /**
  * @Description: 跳转到详情页工具类
@@ -15,6 +16,18 @@ import jan.jason.wanandroid.ui.main.activity.ArticleDetailActivity;
  * @Date: 2018/9/3 18:37
  */
 public class JudgeUtils {
+
+    /**
+     * 跳转到文章详情
+     * @param mActivity
+     * @param activityOptions
+     * @param id
+     * @param articleTitle
+     * @param articleLink
+     * @param isCollect
+     * @param isCollectPage
+     * @param isCommonSite
+     */
     public static void startArticleDetailActivity(Context mActivity, ActivityOptions activityOptions, int id, String articleTitle,
                                                   String articleLink, boolean isCollect,
                                                   boolean isCollectPage, boolean isCommonSite) {
@@ -32,6 +45,14 @@ public class JudgeUtils {
         }
     }
 
+    /**
+     * 跳转到知识体系详情页
+     * @param mActivity
+     * @param isSingleChapter
+     * @param superChapterName
+     * @param chapterName
+     * @param chapterId
+     */
     public static void startKnowledgeHierarchyDetailActivity(Context mActivity, boolean isSingleChapter,
                                                              String superChapterName, String chapterName, int chapterId) {
         Intent intent = new Intent(mActivity, KnowledgeHierarchyDetailActivity.class);
@@ -39,6 +60,17 @@ public class JudgeUtils {
         intent.putExtra(Constants.SUPER_CHAPTER_NAME, superChapterName);
         intent.putExtra(Constants.CHAPTER_NAME, chapterName);
         intent.putExtra(Constants.CHAPTER_ID, chapterId);
+        mActivity.startActivity(intent);
+    }
+
+    /**
+     * 跳转到搜索列表
+     * @param mActivity
+     * @param searchText
+     */
+    public static void startSearchListActivity(Context mActivity, String searchText) {
+        Intent intent = new Intent(mActivity, SearchListActivity.class);
+        intent.putExtra(Constants.SEARCH_TEXT, searchText);
         mActivity.startActivity(intent);
     }
 

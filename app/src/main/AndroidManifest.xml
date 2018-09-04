@@ -17,7 +17,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".ui.main.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,21 +25,20 @@
             </intent-filter>
         </activity>
         <activity android:name=".test.MainActivity" />
-
         <activity
             android:name=".ui.main.activity.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-
-        <activity android:name=".ui.main.activity.ArticleDetailActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".ui.hierarchy.activity.KnowledgeHierarchyDetailActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".ui.main.activity.LoginActivity"
-            android:screenOrientation="portrait"/>
-
+        <activity
+            android:name=".ui.main.activity.ArticleDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.hierarchy.activity.KnowledgeHierarchyDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.main.activity.SearchListActivity"></activity>
     </application>
 
 </manifest>

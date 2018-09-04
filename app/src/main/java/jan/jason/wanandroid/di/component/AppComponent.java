@@ -8,6 +8,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
 import jan.jason.wanandroid.app.WanAndroidApp;
 import jan.jason.wanandroid.core.DataManager;
 import jan.jason.wanandroid.di.module.AbstractAllActivityModule;
+import jan.jason.wanandroid.di.module.AbstractAllDialogFragmentModule;
 import jan.jason.wanandroid.di.module.AbstractAllFragmentModule;
 import jan.jason.wanandroid.di.module.AppModule;
 import jan.jason.wanandroid.di.module.HttpModule;
@@ -25,6 +26,7 @@ import jan.jason.wanandroid.di.module.HttpModule;
         AndroidSupportInjectionModule.class,
         AbstractAllActivityModule.class,
         AbstractAllFragmentModule.class,
+        AbstractAllDialogFragmentModule.class,
         AppModule.class,
         HttpModule.class})
 public interface AppComponent {
