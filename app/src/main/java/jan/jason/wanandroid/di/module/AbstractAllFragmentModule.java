@@ -4,6 +4,9 @@ import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 import jan.jason.wanandroid.di.component.BaseFragmentComponent;
 import jan.jason.wanandroid.ui.hierarchy.fragment.KnowledgeHierarchyFragment;
+import jan.jason.wanandroid.ui.hierarchy.fragment.KnowledgeHierarchyListFragment;
+import jan.jason.wanandroid.ui.main.fragment.CollectFragment;
+import jan.jason.wanandroid.ui.main.fragment.SettingFragment;
 import jan.jason.wanandroid.ui.mainpager.fragment.MainPagerFragment;
 import jan.jason.wanandroid.ui.navigation.fragment.NavigationFragment;
 import jan.jason.wanandroid.ui.project.fragment.ProjectFragment;
@@ -52,4 +55,24 @@ public abstract class AbstractAllFragmentModule {
     @ContributesAndroidInjector(modules = ProjectListFragmentModule.class)
     abstract ProjectListFragment contributesProjectListFragmentInject();
 
+    /**
+     * 生产一个CollectFragment，使其具有活力
+     * @return
+     */
+    @ContributesAndroidInjector(modules = CollectFragmentModule.class)
+    abstract CollectFragment contributesCollectFragmentInject();
+
+    /**
+     * 生成一个SettingFragment，使其具有活力
+     * @return
+     */
+    @ContributesAndroidInjector(modules = SettingFragmentModule.class)
+    abstract SettingFragment contibutesSettingFragmentInject();
+
+    /**
+     * 生产一个知识列表碎片，使其具有生命力
+     * @return
+     */
+    @ContributesAndroidInjector(modules = KnowledgeHierarchyListFragmentModule.class)
+    abstract KnowledgeHierarchyListFragment contributesKnowledgeHierarchyListFragmentInject();
 }

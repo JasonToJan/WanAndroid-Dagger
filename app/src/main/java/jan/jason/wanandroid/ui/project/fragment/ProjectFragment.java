@@ -53,6 +53,11 @@ public class ProjectFragment extends BaseRootFragment<ProjectPresenter> implemen
     private int currentPage;
 
     /**
+     * 是否加载过
+     */
+    private volatile static boolean isLoaded=false;
+
+    /**
      * 外部调用，生成一个ProjectFragment
      * @param param1
      * @param param2
@@ -65,6 +70,15 @@ public class ProjectFragment extends BaseRootFragment<ProjectPresenter> implemen
         args.putString(Constants.ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    /**
+     * 是否加载过,
+     * 在搜索页面可以根据是否加载，点击项目tag后，判断能否跳转到当前页
+     * @return
+     */
+    public static boolean isLoaded(){
+        return isLoaded;
     }
 
     /**
@@ -87,6 +101,7 @@ public class ProjectFragment extends BaseRootFragment<ProjectPresenter> implemen
         if (CommonUtils.isNetworkConnected()) {
             showLoading();
         }
+        isLoaded=true;//加载过
     }
 
     /**

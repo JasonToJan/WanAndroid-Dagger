@@ -65,7 +65,7 @@ public abstract class BaseRootActivity<T extends BasePresenter> extends BaseActi
         if(mNormalView==null){
             throw new IllegalStateException("can't find mNormalView");
         }
-        if((mNormalView.getParent() instanceof ViewGroup)){
+        if(!(mNormalView.getParent() instanceof ViewGroup)){
             throw new IllegalStateException("mNormalView should be a ViewGroup");
         }
         ViewGroup mParent=(ViewGroup)mNormalView.getParent();
@@ -75,7 +75,7 @@ public abstract class BaseRootActivity<T extends BasePresenter> extends BaseActi
         mErrorView=mParent.findViewById(R.id.error_group);
         TextView reloadTv=mErrorView.findViewById(R.id.error_reload_tv);//异常时重新加载
         reloadTv.setOnClickListener(v->reload());
-        mLoadingAnimation=mLoadingAnimation.findViewById(R.id.loading_animation);
+        mLoadingAnimation=mLoadingView.findViewById(R.id.loading_animation);
 
         mErrorView.setVisibility(View.GONE);
         mLoadingView.setVisibility(View.GONE);

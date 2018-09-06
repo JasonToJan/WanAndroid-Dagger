@@ -33,7 +33,9 @@ import jan.jason.wanandroid.core.event.LoginEvent;
 import jan.jason.wanandroid.core.http.cookies.CookiesManager;
 import jan.jason.wanandroid.presenter.main.MainPresenter;
 import jan.jason.wanandroid.ui.hierarchy.fragment.KnowledgeHierarchyFragment;
+import jan.jason.wanandroid.ui.main.fragment.CollectFragment;
 import jan.jason.wanandroid.ui.main.fragment.SearchDialogFragment;
+import jan.jason.wanandroid.ui.main.fragment.SettingFragment;
 import jan.jason.wanandroid.ui.main.fragment.UsageDialogFragment;
 import jan.jason.wanandroid.ui.mainpager.fragment.MainPagerFragment;
 import jan.jason.wanandroid.ui.navigation.fragment.NavigationFragment;
@@ -404,14 +406,14 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         mKnowledgeHierarchyFragment = KnowledgeHierarchyFragment.getInstance(null, null);
         mNavigationFragment = NavigationFragment.getInstance(null, null);
         mProjectFragment = ProjectFragment.getInstance(null, null);
-       // CollectFragment collectFragment = CollectFragment.getInstance(null, null);
-       // SettingFragment settingFragment = SettingFragment.getInstance(null, null);
+        CollectFragment collectFragment = CollectFragment.getInstance(null, null);
+        SettingFragment settingFragment = SettingFragment.getInstance(null, null);
 
        mFragments.add(mKnowledgeHierarchyFragment);
        mFragments.add(mNavigationFragment);
        mFragments.add(mProjectFragment);
-       // mFragments.add(collectFragment);
-       // mFragments.add(settingFragment);
+       mFragments.add(collectFragment);
+       mFragments.add(settingFragment);
     }
 
     /**
@@ -463,16 +465,14 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                         startCollectFragment();//打开收集碎片
                         return true;
                     }else{
-                        //TODO 打开登录页
-                       // startActivity(new Intent(this, LoginActivity.class));
                         CommonUtils.showMessage(this,getString(R.string.login_tint));
+                        startActivity(new Intent(this, LoginActivity.class));
                         return true;
                     }
                 });
         mNavigationView.getMenu().findItem(R.id.nav_item_about_us)
                 .setOnMenuItemClickListener(item -> {
-                    //TODO 跳转到关于我页面
-                    //startActivity(new Intent(this, AboutUsActivity.class));
+                    startActivity(new Intent(this, AboutUsActivity.class));
                     return true;
                 });
         mNavigationView.getMenu().findItem(R.id.nav_item_logout)
@@ -533,8 +533,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         mPresenter.setLoginStatus(false);
         CookiesManager.clearAllCookies();//清除所有登录缓存的数据
         RxBus.getDefault().post(new LoginEvent(false));
-        //TODO 跳转到登录页
-        //startActivity(new Intent(this, LoginActivity.class));
+        startActivity(new Intent(this, LoginActivity.class));
     }
 
     /**
@@ -555,6 +554,4 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         //如果有弹出框，则最后进行销毁
         CommonAlertDialog.newInstance().cancelDialog(true);
     }
-
-
 }

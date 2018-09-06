@@ -77,7 +77,7 @@ public abstract class BaseActivity<T extends AbstractPresenter> extends Abstract
     }
 
     /**
-     * 使用夜间模式
+     * 使用夜间模式,在MainPresenter中注册了夜间模式事件
      * @param isNight
      */
     @Override

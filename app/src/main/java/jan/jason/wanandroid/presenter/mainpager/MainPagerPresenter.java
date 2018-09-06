@@ -100,7 +100,7 @@ public class MainPagerPresenter extends BasePresenter<MainPagerContract.View> im
      */
     @Override
     public void loadMainPagerData(){
-        //获取登录相关数据
+        //获取登录相关数据,静默登录
         Observable<BaseResponse<LoginData>> mLoginObservable = mDataManager.getLoginData(getLoginAccount(), getLoginPassword());
         //获取轮播图相关数据
         Observable<BaseResponse<List<BannerData>>> mBannerObservable = mDataManager.getBannerData();

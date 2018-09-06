@@ -168,4 +168,9 @@ public class Constants {
      */
     public static final String SEARCH_TEXT = "search_text";
 
+    /**
+     * 反射实现菜单显示图标和文字
+     */
+    public static final String MENU_BUILDER = "MenuBuilder";
+
 }

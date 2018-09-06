@@ -60,6 +60,11 @@ public class NavigationFragment extends BaseRootFragment<NavigationPresenter> im
     private boolean isClickTab;
 
     /**
+     * 是否加载过
+     */
+    private volatile static boolean isLoaded=false;
+
+    /**
      * 外部调用，生产出一个导航碎片
      * @param param1
      * @param param2
@@ -72,6 +77,15 @@ public class NavigationFragment extends BaseRootFragment<NavigationPresenter> im
         args.putString(Constants.ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    /**
+     * 是否加载过,
+     * 在搜索页面可以根据是否加载，点击导航tag后，判断能否跳转到当前页
+     * @return
+     */
+    public static boolean isLoaded(){
+        return isLoaded;
     }
 
     /**
@@ -93,6 +107,7 @@ public class NavigationFragment extends BaseRootFragment<NavigationPresenter> im
         if(CommonUtils.isNetworkConnected()){
             showLoading();
         }
+        isLoaded=true;//加载过
     }
 
     /**

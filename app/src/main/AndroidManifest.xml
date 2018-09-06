@@ -38,7 +38,16 @@
         <activity
             android:name=".ui.main.activity.LoginActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.main.activity.SearchListActivity"></activity>
+        <activity
+            android:name=".ui.main.activity.SearchListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.activity.RegisterActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".ui.main.activity.AboutUsActivity"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

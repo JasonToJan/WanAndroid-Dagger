@@ -1,7 +1,7 @@
 package jan.jason.wanandroid.core.event;
 
 /**
- * @Description: 收集事件
+ * @Description: 收藏事件
  * @Author: jasonjan
  * @Date: 2018/9/3 15:59
  */
